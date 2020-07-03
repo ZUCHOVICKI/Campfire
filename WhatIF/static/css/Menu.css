@@ -1,0 +1,78 @@
+*{
+
+    margin: 0px;
+    padding: 0px;
+   
+}
+
+body {
+    background: url("/static/img/campfire.jpg") no-repeat center center fixed; 
+    /* background-color: black; */
+}
+
+
+
+
+.log {
+    font-family: 'Sigmar One', cursive;
+    margin-left: 20px;
+    font-size: 50px;
+    /* text-shadow: 2px 2px #FC7348; */
+
+}
+
+.PL{
+    font-family: 'Sigmar One', cursive;
+
+}
+
+.op{
+
+    opacity: 0.9;
+}
+
+#icon-campfire{
+
+    width: 50px;
+    height: 50px;
+}
+
+#txt1{
+    font-family: 'Sigmar One', cursive;
+    color: white;
+}
+
+#txt2{
+    font-family: 'Sigmar One', cursive;
+    color:#FEF29E;
+    margin-left: 50px;
+}
+
+#movement{
+
+    margin-left: 50px;
+    margin-top: 150px;
+}
+
+
+/* LOGIN */
+.card-color{
+
+    background-color:#E0584A;
+}
+
+.color{
+    background-color: #180B0B;
+}
+
+.Sigmar{
+    font-family: 'Sigmar One', cursive;
+    
+}
+
+.mov{
+
+    margin-left: 50px;
+    margin-top: 80px;
+
+}
