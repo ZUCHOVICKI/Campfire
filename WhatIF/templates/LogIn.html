@@ -1,0 +1,45 @@
+
+{%extends "Navexted.html"%}
+{% block Contenido %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="row animate__animated animate__fadeIn mov">
+    <div class="col s6">
+    <div class="card card-color">
+        <div class="card-content white-text">
+          <span class="card-title Sigmar ">Iniciar Sesion</span>
+
+
+          {{form.non_field_errors}}
+    <form action="{% url 'Login'%}" method="POST">
+
+        {% csrf_token %}
+    {%for field in form%}
+      <div >
+        {{field.label_tag}}
+        {{field}}
+      </div>
+    {%endfor%}
+  
+    <button class="btn waves-effect waves-light" type="submit" name="action">Iniciar Sesion
+        <i class="material-icons right">home</i>
+      </button>
+            
+    </form>
+    </div>    
+    </div>
+    </div>
+    </div>
+
+
+</body>
+</html>{% endblock %}

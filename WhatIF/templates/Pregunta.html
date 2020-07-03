@@ -1,0 +1,73 @@
+{%extends "MenuNav.html"%}
+
+{%block Contenido%}
+{%load static%}
+{% csrf_token %}
+<div class="row animate__animated animate__fadeIn">
+    <div class="col s2 push-s2">
+        <img  width="200" height="200" src="{{user.foto.url}}" alt="">
+        <b class="Qusername">{{preguntas.Autor}}</b>
+    </div>
+    <div class="col s6 push-s2 ">
+        <div class="card white-text  ColorCardMenu ">
+            <div class="card-title PL">
+              <p>{{preguntas.Titulo}}</p>
+            </div>
+            <div class="card-action ">
+                <ul>
+                    <li><p class="Desc.">{{preguntas.Descripcion}}</p></li>
+                    <li class="PL">{{preguntas.Categoria}}</li>
+                    <li class="PL">{{preguntas.Fecha}}</li>
+                    {%if eliminar%}
+                    <a href="#" id="IdBorrar" data-idBorrar="{{preguntas.id}}" onclick="BorrarPregunta()"><i class="material-icons">delete</i></a>
+                    {%endif%}
+                </ul>
+              </div>
+        </div>
+    </div>
+
+</div>
+
+
+<button data-target="modal1" class="btn modal-trigger buttonAnswers orange darken-2 PL animate__animated animate__fadeIn" >Contestar Pregunta</button>
+
+<div id="modal1" class="modal ColorCardMenu">
+    <div class="modal-content">
+      <h4 class="PL">Contesta tu Pregunta</h4>
+     <textarea name="" id="DescripcionPregunta" cols="30" rows="10" placeholder="Ingresa tu Respuesta" class="white-text Desc"></textarea>
+     <h5 id="Userid" data-idUser="{{request.user}}" class="white-text Desc">{{request.user}}</h5>
+     <h5 id="Preguntaid" data-idPregunta="{{preguntas.id}}" class="white-text Desc">{{preguntas.Titulo}}</h5>
+    </div>
+    <div class="modal-footer orange darken-2 ">
+      <a href="#" onclick="ContestarPregunta()" class="modal-close waves-effect waves-green btn-flat white-text ">Enviar</a>
+    </div>
+  </div>
+
+
+<h1 class="Title animate__animated animate__fadeIn">RESPUESTAS</h1>
+     
+
+{%for respuesta in respuestas%}
+<div class="row animate__animated animate__fadeIn">
+    
+    
+    <div class="col s6 push-s3 ">
+        <div class="card white-text  ColorCardMenu ">
+            <div class="card-title PL">
+              <p>{{respuesta.Descripcion}}</p>
+            </div>
+            <div class="card-action ">
+                <ul>
+                    <li><p class="Desc.">{{respuesta.Autor}}</p></li>
+                    
+                    <li class="PL">{{respuesta.Fecha}}</li>
+                    
+                </ul>
+              </div>
+        </div>
+    </div>
+
+</div>
+    
+{%endfor%}
+{%endblock%}

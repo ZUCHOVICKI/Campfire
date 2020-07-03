@@ -1,0 +1,39 @@
+{%extends "MenuNav.html"%}
+
+{%block Contenido%}
+
+<div class="row animate__animated animate__fadeIn">
+<div class="col s8 push-s2">
+<div class="">
+    
+    <h1 class="TitleNewQ">NUEVA PREGUNTA</h1>
+<div class="input-field mtop">
+    <input style="color: black;" id="NombrePregunta" type="text" class="validate PL">
+    <label style="color: black;" for="NombrePregunta"class="PL">Nombre de la Pregunta</label>
+  </div>
+
+ 
+    <div class="input-field mtop">
+        <textarea style="color: black;" id="DescripcionPregunta" class="materialize-textarea PL"></textarea>
+        <label style="color: black;" for="DescripcionPregunta" class="PL">Descripcion de la Pregunta</label>
+    </div>
+     
+    <div class="input-field white-text mtop">
+        <select class="white-text" id="CategoriaPregunta">
+            <option value=""  disabled selected class="ColorOptionsSelect PL">Escoge la Categoria</option>
+            <option value="Salud"class="ColorOptionsSelect PL">Salud </option>
+            <option value="Miscelaneo"class="ColorOptionsSelect PL">Miscelaneo</option>
+            <option value="Deportes"class="ColorOptionsSelect PL">Deportes</option>
+            <option value="Tecnologia"class="ColorOptionsSelect PL">Tecnologia</option>
+            <option value="Cultura"class="ColorOptionsSelect PL">Cultura</option>
+            <option value="Educacion"class="ColorOptionsSelect PL">Educacion</option>
+  
+          </select>
+        <label style="color: black;" class="PL" >Categoria de la Pregunta </label>
+      </div>
+      
+<button data-target="modal1" onclick="CrearPregunta()" class="btn mtop buttonAnswers orange darken-2 PL animate__animated animate__fadeIn" >Agregar Pregunta</button>
+    </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,44 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Campfire</title>
+    <link rel="stylesheet" href="{% static 'css/Menu.css'%}">
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+    
+</head>
+<body>
+  
+
+ 
+
+    <nav>
+        <div class="nav-wrapper #000000 black op">
+          <a  href="#" class="log"><img src="{%static 'img/camping.png'%}" id="icon-campfire"> Campfire</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="PL"><a href="{%url 'Registro'%}">Registrate</a></li>
+            <li class="PL"><a href="{% url 'Login'%}">Inicio Sesion</a></li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+      <div id="movement">
+
+        <h1 id="txt1" class=" animate__animated animate__fadeIn">Bienvenido A</h1>
+        <h1 id="txt2" class=" animate__animated animate__fadeIn"> CAMPFIRE</h1>
+      </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{%extends "MenuNav.html"%}
+{% block Contenido %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a class="btn-floating btn-large waves-effect waves-light black dropdown-trigger" data-target='dropdown1' >
+        <i class="material-icons">filter_list</i></a>
+
+    
+    <ul id='dropdown1' class='dropdown-content '>
+        
+        <li><a href="{% url 'HomeQA'%}" class="#000000 black #ffffff white-text op">Todo</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Salud'%}" class="#000000 black #ffffff white-text op">Salud</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Deportes'%}" class="#000000 black #ffffff white-text op">Deportes</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Cultura'%}" class="#000000 black #ffffff white-text op">Cultura</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Educacion'%}" class="#000000 black #ffffff white-text op">Educacion</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Tecnologia'%}" class="#000000 black #ffffff white-text op">Tecnologia</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a href="{% url 'Misc'%}" class="#000000 black #ffffff white-text op">Misc.</a></li>
+        
+    </ul>
+   
+<h1 class="Title animate__animated animate__fadeIn ">PREGUNTAS RECIENTES</h1>
+ {%for pregunta in Preguntas%}
+    <div class="row animate__animated animate__fadeIn">
+        <div class="col s6 push-s3 ">
+         <a href="{%url 'PreguntasYRespuestas' idPregunta=pregunta.id Autor=pregunta.Autor %}"> <div class="card  PL">
+            <div class="card-content white-text  ColorCardMenu">
+              
+                <span class="card-title">{{pregunta.Titulo}}</span>
+            
+            <div class="card-action">
+              <ul>
+                  <li>{{pregunta.Autor}}</li>
+                  <li>{{pregunta.Categoria}}</li>
+                  <li>{{pregunta.Fecha}}</li>
+                  
+              </ul>
+            </div>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+
+{%endfor%}
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{%extends 'MenuNav.html'%}
+
+{%block Contenido%}
+<div class="row animate__animated animate__fadeIn">
+    <div class="col s4">
+       <div class="card ColorCardMenu white-text">
+        <img src="{{User.foto.url}}" height="400" width="400" alt="">
+       </div> 
+    </div>
+    <div class="col s8">
+        <div class="card ColorCardMenu white-text">
+            <h1 class="TitleNewQ">{{User.username}}</h1>
+            <h4 class="TitleNewQ">{{User.email}}</h1>
+        </div>
+
+
+        <button data-target="Contraseña" class="btn modal-trigger PerfilMargin orange darken-2 PL animate__animated animate__fadeIn" >Cambiar Contraseña</button>
+        <div id="Contraseña" class="modal ColorCardMenu">
+            <div class="modal-content ">
+              <h4 class="PL">Cambia tu Contraseña</h4>
+             <input id="ContraseñaPerfil" type="password" class="white-text"><label for="ContraseñaPerfil">Ingresa tu Contrasela</label>
+
+             <input id="ContraseñaPerfilConf" type="password" class="white-text"><label for="ContraseñaPerfilConf">Confirma tu Contrasela</label>
+            </div>
+            <div class="modal-footer orange darken-2 ">
+              <a href="#" onclick="CambiarContraseña()" class="modal-close waves-effect waves-green btn-flat white-text ">Enviar</a>
+            </div>
+          </div>
+
+       
+        <button data-target="Foto" class="btn modal-trigger PerfilMargin orange darken-2 PL animate__animated animate__fadeIn" >Cambiar Foto de Perfil</button>
+        <div id="Foto" class="modal ColorCardMenu">
+            <div class="modal-content">
+              <h4 class="PL">Cambia  tu Foto</h4>
+             <input type="file" name="" id="FotoPerfil">
+            </div>
+            <div class="modal-footer orange darken-2 ">
+              <a href="#" onclick="CambiarFoto()" class="modal-close waves-effect waves-green btn-flat white-text ">Enviar</a>
+            </div>
+          </div>
+    </div>
+</div>
+
+{%for pregunta in Preguntas%}
+    <div class="row animate__animated animate__fadeIn">
+        <div class="col s6 push-s3 ">
+         <a href="{%url 'PreguntasYRespuestas' idPregunta=pregunta.id Autor=pregunta.Autor %}"> <div class="card  PL">
+            <div class="card-content white-text  ColorCardMenu">
+              
+                <span class="card-title">{{pregunta.Titulo}}</span>
+            
+            <div class="card-action">
+              <ul>
+                  <li>{{pregunta.Autor}}</li>
+                  <li>{{pregunta.Categoria}}</li>
+                  <li>{{pregunta.Fecha}}</li>
+                  
+              </ul>
+            </div>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+
+{%endfor%}
+
+{%endblock%}

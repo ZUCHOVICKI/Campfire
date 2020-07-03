@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Campfire</title>
+    <link rel="stylesheet" href="{% static 'css/MenuQA.css'%}">
+    <script src="{%static 'js/Scripts.js'%}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Muli&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+
+    
+
+</head>
+<body >
+    
+
+    <nav>
+        <div class="nav-wrapper #000000 black op">
+          <a  href="{% url 'HomeQA'%}" class="log"><img src="{%static 'img/camping.png'%}" id="icon-campfire"> Campfire</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li class="PL"><a href="{%url 'CrearPregunta'%}">Nueva Pregunta</a></li>
+            
+            <li class="PL"><a href="{% url 'Perfil'%}">Perfil</a></li>
+            <li class="PL"><a href="{% url 'cerrarSesion'%}">Log OUT</a></li>
+          </ul>
+        </div>
+      </nav>
+</body>
+</html>
+
+
+
+
+{% block Contenido %}
+{% endblock %}
