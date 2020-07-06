@@ -6,6 +6,7 @@ from django.contrib import messages
 from Apps.Usuarios.models import User , Pregunta
 from Apps.QAs import views as views_QAs
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.password_validation import validate_password
 # Create your views here.
 
 
@@ -46,6 +47,7 @@ def logIN(request):
 
 
 def Registro(request):
+    print("HOLA MUNDO")
     if request.method == 'POST':
         form = RegisterForm(request.POST,request.FILES,initial={'foto': 'fotos_perfil/camping.png' })
 
@@ -62,16 +64,21 @@ def Registro(request):
             user = User.objects.filter(username=username)
             emailUser = User.objects.filter(email=email)
 
+            # print(len(password))
+            # if(len(password)<5):
+            #     form.add_error('email','Contraseña Invalida')
+            #     return render(request,'Registro.html',{'form':form})
+            
             if(len(user)>0):
-                form.add_error('username','Usuario no Disponible')
-                return render(request,request,'Registro.html',{'form':form})
-                
-
-            if(len(emailUser)>0):
-                form.add_error('email','Correo no Disponible')
+                form.add_error('username','Usuario no Disponible / Ya Registrado')
                 return render(request,'Registro.html',{'form':form})
                 
 
+            if(len(emailUser)>0):
+                form.add_error('email','Correo no Disponible / Ya Registrado ')
+                return render(request,'Registro.html',{'form':form})
+                
+            
 
             user = User(
                 username = username,
