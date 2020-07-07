@@ -171,6 +171,8 @@ DescripcionPregunta.value = ""
     formData.append("Contraseña",Contraseña)
 
     if (Contraseña == ContraseñaConf){
+      
+      if(Contraseña.length>5){
 
         $.ajax({
 
@@ -202,6 +204,18 @@ DescripcionPregunta.value = ""
             
         });
     }
+  
+  else{
+
+    Swal.fire({
+      title: "Error",
+          text: "Las Contraseñas Necesita Un Minimo de 6 Caracteres",
+          icon: 'error',
+          confirmButtonText: 'Continuar'
+  })
+
+  }
+  }
     else{
 
         Swal.fire({
