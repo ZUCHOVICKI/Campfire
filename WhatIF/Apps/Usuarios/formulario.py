@@ -16,10 +16,10 @@ class LoginForm(forms.Form):
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username','password','email','first_name','last_name','foto']
+        fields = ['username','email','first_name','last_name','foto']
         widgets = {
         'username': forms.TextInput(attrs={'class':'form-control','placeholder':'Ingresa Tu Username'}),
-        'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Ingresa una Contraseña'} ),
+        # 'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Ingresa una Contraseña'} ),
         'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Ingresa Tu Email'}),
         'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Ingresa tu Nombre'}),
         'last_name':forms.TextInput(attrs={'placeholder':'Ingresa tu Apellido'}),
@@ -43,7 +43,7 @@ class RegisterForm(UserCreationForm):
 
         
 
-    def clean_password(self):
-        password = self.cleaned_data['password']
-        validate_password(password)
-        return password
+    # def clean_password(self):
+    #     password = self.cleaned_data['password']
+    #     validate_password(password)
+    #     return password
