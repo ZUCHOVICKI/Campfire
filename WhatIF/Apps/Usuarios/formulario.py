@@ -13,19 +13,24 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="Contraseña",max_length=50,min_length=5,required=True,
     widget=forms.PasswordInput(attrs={'placeholder':'Ingresa Tu contraseña'}))
 
-class RegisterForm(UserCreationForm):
+class RegisterForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username','email','first_name','last_name','foto']
+        fields = ['username','password','email','first_name','last_name','foto']
         widgets = {
         'username': forms.TextInput(attrs={'class':'form-control','placeholder':'Ingresa Tu Username'}),
-        # 'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Ingresa una Contraseña'} ),
+        'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Ingresa una Contraseña'} ),
         'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Ingresa Tu Email'}),
         'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Ingresa tu Nombre'}),
         'last_name':forms.TextInput(attrs={'placeholder':'Ingresa tu Apellido'}),
         'foto':forms.ClearableFileInput(attrs={'class':'form-control','placeholder':'Ingresa Tu Foto'})
         # 'is_moderador':forms.Select(attrs={'class':'form-control','placeholder':'Eres Artista?'}),
 
+        }
+
+        validators = {
+
+            'password':validators.MinLengthValidator(5)
         }
         # 'form-check-label'
 
@@ -43,7 +48,7 @@ class RegisterForm(UserCreationForm):
 
         
 
-    # def clean_password(self):
-    #     password = self.cleaned_data['password']
-    #     validate_password(password)
-    #     return password
+    def clean_password(self):
+        password = self.cleaned_data['password']
+        validate_password(password)
+        return password

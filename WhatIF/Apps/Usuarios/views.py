@@ -53,7 +53,7 @@ def Registro(request):
 
         if form.is_valid():
             username = form.cleaned_data['username']
-            # password = form.cleaned_data['password']
+            password = form.cleaned_data['password']
             email = form.cleaned_data['email']
             Nombre = form.cleaned_data['first_name']
             Apellido = form.cleaned_data['last_name']
@@ -68,7 +68,15 @@ def Registro(request):
             # if(len(password)<5):
             #     form.add_error('email','Contraseña Invalida')
             #     return render(request,'Registro.html',{'form':form})
-            
+            if(len(username)<5):
+                form.add_error('username','Nombre demasiado Corta /Minimo 5 Caracteres')
+                return render(request,'Registro.html',{'form':form})
+
+
+            if(len(password)<5):
+                form.add_error('password','Contraseña demasiado Corta/Minimo 5 Caracteres')
+                return render(request,'Registro.html',{'form':form})
+
             if(len(user)>0):
                 form.add_error('username','Usuario no Disponible / Ya Registrado')
                 return render(request,'Registro.html',{'form':form})
@@ -88,7 +96,7 @@ def Registro(request):
                 foto = foto,
                 # is_moderador = is_moderador
             )
-            user.set_password("id_password1")  
+            user.set_password(password)  
             user.save()
             messages.success(request,'Usuario Creado Exitosamente')
             return render(request,'Registro.html',{'form':form})
